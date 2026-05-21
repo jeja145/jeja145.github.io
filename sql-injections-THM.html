@@ -1,27 +1,31 @@
-Title: SQL Injection — My First Web Hacking Writeup
-Date: May 2026
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SQL Injection - Writeup</title>
+</head>
+<body>
+  <h1>SQL Injection — My First Web Hacking Writeup</h1>
+  <p>May 2026</p>
 
 
-What is a SQL Injection?
+  <h2>What is a SQL Injection?</h2>
 
-A SQL Injection is when SQL (Structured Query Language) uses queries to get data out of Databases and these queries include User-provided data. So everything inside the database is named with ID's and upon such a query this gets abused to gain leverage and to even access unauthorized credentials.
+  <p>A SQL Injection is when SQL (Structured Query Language) uses queries to get data out of Databases and these queries include User-provided data. So everything inside the database is named with ID's and upon such a query this gets abused to gain leverage and to even access unauthorized credentials.</p>
 
+  <h2>Why does it function technically? What are databases doing wrong? </h2>
 
-Why does it function technically? What are databases doing wrong?
+  <p>It mostly happens because developers forget to add filters into the user inputs which lets users gain an advantage to abuse it.</p>
 
-It mostly happens because developers forget to add filters into the user inputs which lets users gain an advantage to abuse it.
+  <h2>Simple example:</h2>
 
+  <p>A webpage has a posting page and in the query in the search bar it says "id=1" I can use an apostrophe (') after the "1" and if it gives me an SQL syntax error It confirms that it's exploitable. Another great example is < ' OR 1=1;-- > because of the apostrophe we can use our own code and since "1=1" is a true statement the "OR" Operator works perfectly and will lead for us to be able to bypass, the semicolon ends the query and the "--" comments the rest out.</p>
 
-Simple example:
+  <h2>How do you avoid it happening?</h2>
 
-A webpage has a posting page and in the query in the search bar it says "id=1" I can use an apostrophe (') after the "1" and if it gives me an SQL syntax error It confirms that it's exploitable. Another great example is < ' OR 1=1;-- > because of the apostrophe we can use our own code and since "1=1" is a true statement the "OR" Operator works perfectly and will lead for us to be able to bypass, the semicolon ends the query and the "--" comments the rest out.
+  <p>What can be done against it? Well as an Example so called "Input validation" can be used which restricts the user's input in the query, also something called "Escaping user input" which just leads to that unwanted characters get parsed out. Nevertheless what can be done for easier and cleaner code is to write the SQL query first and then add the user's inputs.</p>
 
+  <h2>What did I learn?</h2> 
 
-How do you avoid it happening?
-
-What can be done against it? Well as an Example so called "Input validation" can be used which restricts the user's input in the query, also something called "Escaping user input" which just leads to that unwanted characters get parsed out. Nevertheless what can be done for easier and cleaner code is to write the SQL query first and then add the user's inputs.
-
-
-What did I learn? 
-
-That unsanitized user input can lead to a huge data leak and that when working with SQL one should always be careful. I got to see how SQL Injections can abuse such small mistakes from developers and lead to critical security breaches. 
+  <p>That unsanitized user input can lead to a huge data leak and that when working with SQL one should always be careful. I got to see how SQL Injections can abuse such small mistakes from developers and lead to critical security breaches. </p>
+</body>
+</html>
